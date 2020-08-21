@@ -146,7 +146,7 @@ model_ambient_min = (0x58DE4C)
 set_abs_angles = (0x1D64E0)
 set_abs_origin = (0x1D6320)
 
-def gloei():
+def springen():
     pm = pymem.Pymem("csgo.exe")
     client = pymem.process.module_from_name(pm.process_handle, "client.dll").lpBaseOfDll
 
@@ -163,4 +163,4 @@ def gloei():
 
 
 if __name__ == '__main__':
-    gloei()
+    springen()
