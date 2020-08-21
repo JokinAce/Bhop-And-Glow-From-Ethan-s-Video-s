@@ -1,5 +1,4 @@
 import pymem
-import pymem.process
 import keyboard
 import time
 
