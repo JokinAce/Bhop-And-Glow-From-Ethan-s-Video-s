@@ -2,7 +2,7 @@
 
 <h2>Credits to my nibba's</h2>
 
-<a href="https://github.com/EthanEDITSe">EthanEDITS</a>
+<a href="https://github.com/EthanEDITS">EthanEDITS</a>
 <br>
 <br>
 <br>
