@@ -166,19 +166,19 @@ def glow():
                 entity_glow = pm.read_int(entity + m_iGlowIndex)
 
                 #Uses normal RGBA (RED,GREEN,BLUE,ALPHA) Color Input. Use wanted Value divided by 255 Formula
-                if entity_team == 2:
+                if entity_team == 2: #Red Glow for Terrorists
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x4, float(255 / 255)) #R
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x8, float(0 / 255)) #G
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0xC, float(0 / 255)) #B
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x10, float(255 / 255)) #A
-                    pm.write_int(glow_manager + entity_glow * 0x38 + 0x24, 1)
+                    pm.write_int(glow_manager + entity_glow * 0x38 + 0x24, 1) #Enables glow for that Entity
                     
-                elif entity_team == 3:
+                elif entity_team == 3: #Blue Glow for Terrorists
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x4, float(0 / 255)) #R
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x8, float(0 / 255) #G
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0xC, float(255 / 255)) #B
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x10, float(255 / 255)) #A
-                    pm.write_int(glow_manager + entity_glow * 0x38 + 0x24, 1)
+                    pm.write_int(glow_manager + entity_glow * 0x38 + 0x24, 1) #Enables glow for that Entity
 
 if __name__ == '__main__':
     glow()
