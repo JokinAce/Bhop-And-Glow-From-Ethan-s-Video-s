@@ -175,7 +175,7 @@ def glow():
                     
                 elif entity_team == 3: #Blue Glow for Terrorists
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x4, float(0 / 255)) #R
-                    pm.write_float(glow_manager + entity_glow * 0x38 + 0x8, float(0 / 255) #G
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0x8, float(0 / 255)) #G
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0xC, float(255 / 255)) #B
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x10, float(255 / 255)) #A
                     pm.write_int(glow_manager + entity_glow * 0x38 + 0x24, 1) #Enables glow for that Entity
