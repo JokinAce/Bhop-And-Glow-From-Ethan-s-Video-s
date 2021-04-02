@@ -162,21 +162,23 @@ def glow():
             entity = pm.read_int(client + dwEntityList + i * 0x10)
 
             if entity:
-                team_entity = pm.read_int(entity + m_iTeamNum)
-                glow_entity = pm.read_int(entity + m_iGlowIndex)
+                entity_team = pm.read_int(entity + m_iTeamNum)
+                entity_glow = pm.read_int(entity + m_iGlowIndex)
 
-
-                if team_entity == 2:
-                    pm.write_float(glow_manager + glow_entity * 0x38 + 0x4, float(1))
-                    pm.write_float(glow_manager + glow_entity * 0x38 + 0x10, float(1))
-                    pm.write_int(glow_manager + glow_entity * 0x38 + 0x24, 1)
-
-
-
-                if team_entity == 3:
-                    pm.write_float(glow_manager + glow_entity * 0x38 + 0xC, float(1))
-                    pm.write_float(glow_manager + glow_entity * 0x38 + 0x10, float(1))
-                    pm.write_int(glow_manager + glow_entity * 0x38 + 0x24, 1)
+                #Uses normal RGBA (RED,GREEN,BLUE,ALPHA) Color Input. Use wanted Value devided by 255 Formula
+                if entity_team == 2:
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0x4, float(255 / 255)) #R
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0x8, float(0 / 255)) #G
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0xC, float(0 / 255)) #B
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0x10, float(255 / 255)) #A
+                    pm.write_int(glow_manager + entity_glow * 0x38 + 0x24, 1)
+                    
+                elif entity_team == 3:
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0x4, float(0 / 255)) #R
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0x8, float(0 / 255) #G
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0xC, float(255 / 255)) #B
+                    pm.write_float(glow_manager + entity_glow * 0x38 + 0x10, float(255 / 255)) #A
+                    pm.write_int(glow_manager + entity_glow * 0x38 + 0x24, 1)
 
 if __name__ == '__main__':
     glow()
