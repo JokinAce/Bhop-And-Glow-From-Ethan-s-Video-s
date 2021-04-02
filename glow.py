@@ -165,7 +165,7 @@ def glow():
                 entity_team = pm.read_int(entity + m_iTeamNum)
                 entity_glow = pm.read_int(entity + m_iGlowIndex)
 
-                #Uses normal RGBA (RED,GREEN,BLUE,ALPHA) Color Input. Use wanted Value devided by 255 Formula
+                #Uses normal RGBA (RED,GREEN,BLUE,ALPHA) Color Input. Use wanted Value divided by 255 Formula
                 if entity_team == 2:
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x4, float(255 / 255)) #R
                     pm.write_float(glow_manager + entity_glow * 0x38 + 0x8, float(0 / 255)) #G
