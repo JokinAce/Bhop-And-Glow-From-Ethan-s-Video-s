@@ -8,5 +8,4 @@
 <br>
 <br>
 <br>
-<a href="https://github.com/JokinAce">JokinAce</a> | https://www.youtube.com/channel/UCTPs42E7oTCj-ZoQuOJJf8A
 <br>
