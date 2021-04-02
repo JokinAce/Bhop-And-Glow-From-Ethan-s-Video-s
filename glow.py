@@ -2,7 +2,7 @@ import pymem
 import keyboard
 import time
 
-#Update these every update
+#Update these every CS:GO update
 cs_gamerules_data = (0x0)
 m_ArmorValue = (0xB378)
 m_Collision = (0x320)
