@@ -2,6 +2,7 @@ import pymem
 import keyboard
 import time
 
+#Update these every update
 cs_gamerules_data = (0x0)
 m_ArmorValue = (0xB378)
 m_Collision = (0x320)
@@ -147,7 +148,7 @@ set_abs_origin = (0x1D6F50)
 
 
 
-def gloei():
+def glow():
     pm = pymem.Pymem("csgo.exe")
     client = pymem.process.module_from_name(pm.process_handle, "client.dll").lpBaseOfDll
 
@@ -156,26 +157,26 @@ def gloei():
             exit(0)
 
 
-        gloei_mangr = pm.read_int(client + dwGlowObjectManager)
+        glow_manager = pm.read_int(client + dwGlowObjectManager)
         for i in range(1, 32):
-            entiteit = pm.read_int(client + dwEntityList + i * 0x10)
+            entity = pm.read_int(client + dwEntityList + i * 0x10)
 
-            if entiteit:
-                team_identiteit = pm.read_int(entiteit + m_iTeamNum)
-                gloei_ent = pm.read_int(entiteit + m_iGlowIndex)
-
-
-                if team_identiteit == 2:
-                    pm.write_float(gloei_mangr + gloei_ent * 0x38 + 0x4, float(1))
-                    pm.write_float(gloei_mangr + gloei_ent * 0x38 + 0x10, float(1))
-                    pm.write_int(gloei_mangr + gloei_ent * 0x38 + 0x24, 1)
+            if entity:
+                team_entity = pm.read_int(entity + m_iTeamNum)
+                glow_entity = pm.read_int(entity + m_iGlowIndex)
 
 
+                if team_entity == 2:
+                    pm.write_float(glow_manager + glow_entity * 0x38 + 0x4, float(1))
+                    pm.write_float(glow_manager + glow_entity * 0x38 + 0x10, float(1))
+                    pm.write_int(glow_manager + glow_entity * 0x38 + 0x24, 1)
 
-                if team_identiteit == 3:
-                    pm.write_float(gloei_mangr + gloei_ent * 0x38 + 0xC, float(1))
-                    pm.write_float(gloei_mangr + gloei_ent * 0x38 + 0x10, float(1))
-                    pm.write_int(gloei_mangr + gloei_ent * 0x38 + 0x24, 1)
+
+
+                if team_entity == 3:
+                    pm.write_float(glow_manager + glow_entity * 0x38 + 0xC, float(1))
+                    pm.write_float(glow_manager + glow_entity * 0x38 + 0x10, float(1))
+                    pm.write_int(glow_manager + glow_entity * 0x38 + 0x24, 1)
 
 if __name__ == '__main__':
-    gloei()
+    glow()
