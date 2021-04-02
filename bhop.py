@@ -2,6 +2,7 @@ import pymem
 import time
 import keyboard
 
+#Update these every update
 cs_gamerules_data = (0x0)
 m_ArmorValue = (0xB378)
 m_Collision = (0x320)
@@ -145,16 +146,16 @@ model_ambient_min = (0x58DE4C)
 set_abs_angles = (0x1D64E0)
 set_abs_origin = (0x1D6320)
 
-def springen():
+def bhop():
     pm = pymem.Pymem("csgo.exe")
     client = pymem.process.module_from_name(pm.process_handle, "client.dll").lpBaseOfDll
 
     while True:
         if keyboard.is_pressed("space"):
             fj = client + dwForceJump
-            speler = pm.read_int(client + dwLocalPlayer)
-            op_grond = pm.read_int(speler + m_fFlags)
-            if speler and op_grond and op_grond == 257:
+            player = pm.read_int(client + dwLocalPlayer)
+            on_ground = pm.read_int(player + m_fFlags)
+            if player and on_ground and on_ground == 257:
                 pm.write_int(fj, 5)
                 time.sleep(0.2)
                 pm.write_int(fj, 4)
@@ -162,4 +163,4 @@ def springen():
 
 
 if __name__ == '__main__':
-    springen()
+    bhop()
