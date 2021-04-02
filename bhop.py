@@ -153,9 +153,9 @@ def bhop():
     while True:
         if keyboard.is_pressed("space"):
             player = pm.read_int(client + dwLocalPlayer)
-            player_flags = pm.read_int(player + m_fFlags)
-            if player and player_flags and player_flags == 263 or player_flags == 257:
-                pm.write_int(client + dwForceJump, 6)
+            player_flags = pm.read_int(player + m_fFlags) #Get local player and it's flags
+            if player and player_flags and player_flags == 263 or player_flags == 257: # 263 == Crouching and 257 == Standing
+                pm.write_int(client + dwForceJump, 6) # 6 == once does (5 == On and 4 == Off)
 
 
 
