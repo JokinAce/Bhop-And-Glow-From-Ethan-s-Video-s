@@ -152,13 +152,10 @@ def bhop():
 
     while True:
         if keyboard.is_pressed("space"):
-            fj = client + dwForceJump
             player = pm.read_int(client + dwLocalPlayer)
-            on_ground = pm.read_int(player + m_fFlags)
-            if player and on_ground and on_ground == 257:
-                pm.write_int(fj, 5)
-                time.sleep(0.2)
-                pm.write_int(fj, 4)
+            player_flags = pm.read_int(player + m_fFlags)
+            if player and player_flags and player_flags == 263 or player_flags == 257:
+                pm.write_int(client + dwForceJump, 6)
 
 
 
